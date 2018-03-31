@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from sys import argv
 from re import compile
 
@@ -11,10 +13,14 @@ f.close()
 
 # h2
 p = compile('^## (.*)')
-b = p.sub('<h2>\g<1></ht><hr>', b)
+b = p.sub('<h2>\g<1></h2><hr>', b)
 
 # br
 b = b.replace('\n', '<br>')
+
+# code
+p = compile('`(.*?)`')
+b = p.sub('<span style="background-color: lightgray;">\g<1></span>', b)
 
 # create html file
 f = open('result.html', 'w')
