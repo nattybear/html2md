@@ -15,6 +15,10 @@ f.close()
 p = compile('^## (.*)')
 b = p.sub('<h2>\g<1></h2><hr>', b)
 
+# bold
+p = compile('[*](.*?)[*]')
+b = p.sub('<b>\g<1></b>', b)
+
 # br
 b = b.replace('\n', '<br>')
 
