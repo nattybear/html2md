@@ -18,13 +18,13 @@ b = p.sub('<h2>\g<1></h2><hr>', b)
 # br
 b = b.replace('\n', '<br>')
 
-# code
-p = compile('`(.*?)`')
-b = p.sub('<span style="background-color: lightgray;">\g<1></span>', b)
-
 # multi-line code
 p = compile('```(.*?)```')
 b = p.sub('<div style="background-color: lightgray;">\g<1></div>', b)
+
+# code
+p = compile('`(.*?)`')
+b = p.sub('<span style="background-color: lightgray;">\g<1></span>', b)
 
 # create html file
 f = open('result.html', 'w')
