@@ -4,6 +4,11 @@ from sys import argv
 from re import compile
 
 def md2html(md):
+
+    # quote box
+    p = compile('> (.*)')
+    md = p.sub("<div style='border-left: 10px solid lightgray; padding: 20px;'>\g<1></div>", md)
+
     # h2
     p = compile('## (.*)')
     md = p.sub('<h2>\g<1></h2><hr>', md)
