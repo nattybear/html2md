@@ -2,13 +2,6 @@
 
 from sys import argv
 from re import compile
-from tkinter import Tk
-
-def set_clipboard(html):
-    root = Tk()
-    root.clipboard_clear()
-    root.clipboard_append(html)
-    root.mainloop()
 
 def md2html(md):
     # h2
@@ -42,10 +35,15 @@ if __name__ == '__main__':
         print('usage : html2md [filename]')
         exit()
 
-    f = open(argv[1])
+    filename = argv[1]
+    f = open(filename)
     md = f.read()
     f.close()
-
+    filename = ''.join(filename.split('.')[:-1])
+    filename = filename + '.html'
     html = md2html(md)
+    f = open(filename, 'w')
+    f.write(html)
+    f.close()
 
-    set_clipboard(html)
+    print('[*] html file is created!')
