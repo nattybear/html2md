@@ -5,7 +5,7 @@ from re import compile
 
 def md2html(md):
 	# h2
-	p = compile('^## (.*)')
+	p = compile('## (.*)')
 	md = p.sub('<h2>\g<1></h2><hr>', md)
 
 	# bold
