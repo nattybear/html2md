@@ -42,6 +42,8 @@ if __name__ == '__main__':
     filename = ''.join(filename.split('.')[:-1])
     filename = filename + '.html'
     html = md2html(md)
+    charset = "<meta charset='utf-8'>"
+    html = charset + html
     f = open(filename, 'w')
     f.write(html)
     f.close()
