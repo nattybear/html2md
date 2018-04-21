@@ -17,11 +17,11 @@ def md2html(md):
 
 	# multi-line code
 	p = compile('```(.*?)```')
-	md = p.sub('<div style="background-color: lightgray;">\g<1></div>', md)
+	md = p.sub("<div style='background-color: lightgray;'>\g<1></div>", md)
 
 	# code
 	p = compile('`(.*?)`')
-	md = p.sub('<span style="background-color: lightgray;">\g<1></span>', md)
+	md = p.sub("<span style='background-color: lightgray;'>\g<1></span>", md)
 
 	return md
 
