@@ -19,6 +19,10 @@ def md2html(md):
     p = compile('[*](.*?)[*]')
     md = p.sub('<b>\g<1></b>', md)
 
+    # strike
+    p = compile('[~](.*?)[~]')
+    md = p.sub('<strike>\g<1></strike>', md)
+
     # br
     md = md.replace('\n', '<br>')
 
